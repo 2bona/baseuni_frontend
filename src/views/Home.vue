@@ -116,6 +116,8 @@ this.$router.push('lesson/'+x.id)
       this.loading = false
         alert('Your Submission was successful')
         this.getLessons()
+        this.description = ''
+        this.incentive = ''
       }).catch(()=>{
         alert('An error occured')
         this.loading = false
