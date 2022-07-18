@@ -7,11 +7,14 @@
 <v-flex xs12 md8 class="d-flex align-center ">
       <v-layout wrap>
 <v-flex xs12 sm7>
-    <v-textarea v-model="description" dense placeholder="Describe your area of interest" filled rows="1"></v-textarea>
+    <v-textarea v-model="description" dense placeholder="Describe your area of interest" auto-grow filled row-height="36" rows="3"></v-textarea>
 </v-flex>
-<v-flex xs12 sm5 class="d-flex pb-2 align-center">
-    <v-text-field v-model="incentive" prepend-inner-icon="mdi-currency-ngn" :class="$vuetify.breakpoint.smAndUp? 'mx-2': 'mr-3'" dense placeholder="Tutor Incentive" filled></v-text-field>
-    <v-btn color="#0b3054" :loading="loading" @click="create()" dark large  class="font-weight-bold  text-capitalize mb-6" >submit</v-btn>
+<v-flex
+     :class="$vuetify.breakpoint.smAndUp? 'px-2': ''"
+ xs12 sm5 class=" pb-2 align-center">
+    <v-text-field hide-details v-model="incentive" prepend-inner-icon="mdi-currency-ngn"
+      placeholder="Tutor Incentive" filled></v-text-field>
+    <v-btn block color="#0b3054" :loading="loading" @click="create()" dark x-large  class="font-weight-bold  text-capitalize my-2" >submit</v-btn>
 </v-flex>
       <v-flex xs12>
         <v-card :disabled="loading" color="grey lighten-5" @click="openLesson(n)" style="border-radius:5px"  hover v-for="(n,i) in lessons" class=" pa-4 mb-8" :key="i">

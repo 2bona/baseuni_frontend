@@ -9,7 +9,6 @@
       <v-flex xs12>
         <v-card color="grey lighten-5" style="border-radius:5px"  class=" pa-4 mb-8">
          <keep-alive>
-
           <v-layout>
             <v-avatar>
               <v-img :src="img"></v-img>
