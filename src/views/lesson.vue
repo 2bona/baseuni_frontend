@@ -28,7 +28,7 @@
           </v-layout>       
             </keep-alive>
             <div class="d-flex justify-end">
-<v-btn v-if="lesson.tutor == null "  @click="addTutor()" color="#0b3054" class="white--text font-weight-bold" dark>Tutor this lesson</v-btn>
+<v-btn v-if="lesson.tutor == null "  @click="addTutor()" color="#0b3054" class="white--text font-weight-bold" dark>Tutor this student</v-btn>
             </div>
         </v-card>
       </v-flex>
