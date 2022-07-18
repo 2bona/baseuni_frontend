@@ -106,6 +106,7 @@ this.$router.push('lesson/'+x.id)
 
 },
     create(){
+      if (this.token) {
       this.loading = true
       axios.post('lesson/create', {
         description: this.description,
@@ -116,9 +117,12 @@ this.$router.push('lesson/'+x.id)
         alert('Your Submission was successful')
         this.getLessons()
       }).catch(()=>{
-        alert('n error occured')
+        alert('An error occured')
         this.loading = false
       })
+      }else{
+        this.$router.push('/signup')
+      }
     }
   }
 }
