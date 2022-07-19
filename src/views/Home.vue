@@ -10,7 +10,7 @@
     <v-textarea v-model="description" dense placeholder="Describe your area of interest" auto-grow filled row-height="36" rows="3"></v-textarea>
 </v-flex>
 <v-flex
-     :class="$vuetify.breakpoint.smAndUp? 'px-2': ''"
+     :class="$vuetify.breakpoint.smAndUp? 'pl-2': ''"
  xs12 sm5 class=" pb-2 align-center">
     <v-text-field hide-details v-model="incentive" prepend-inner-icon="mdi-currency-ngn"
       placeholder="Tutor Incentive" filled></v-text-field>
