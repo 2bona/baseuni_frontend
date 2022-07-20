@@ -16,12 +16,12 @@
             <v-flex  class=" align-center px-3" xs12>
 <div class="d-flex justify-space-between">
     <p class="grey--text text--darken-3 text-capitalize font-weight-bold">{{lesson.description}} </p>
-    <p style="font-size:10px">{{lesson.created_at | myDate}}</p>
+    <p style="font-size:10px" class="text-right">{{lesson.created_at | myDate}}</p>
 </div>
              <div class="d-flex justify-space-between">
 <p class=" grey--text">{{lesson.user.faculty}} - <span class=" grey--text text--darken-2 font-weight-medium">{{lesson.user.department}}</span></p>
-<p v-if="lesson.tutor !== null"  style="color:#0b3054" class="mb-0  font-weight-medium">Tutor - {{lesson.tutor.name}}</p>
-<p v-else style="color:#0b3054" class="mb-0  font-weight-medium">N{{lesson.incentive | price}}</p>
+<p v-if="lesson.tutor !== null"  style="color:#0b3054" class="mb-0 text-right font-weight-medium">Tutor - {{lesson.tutor.name}}</p>
+<p v-else style="color:#0b3054" class="mb-0 text-right font-weight-medium">N{{lesson.incentive | price}}</p>
                   </div> 
             </v-flex>
           </v-layout>       
