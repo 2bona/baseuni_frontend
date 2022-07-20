@@ -7,7 +7,7 @@
       <v-layout wrap>
 
       <v-flex xs12>
-        <v-card color="grey lighten-5" style="border-radius:5px"  class=" pa-4 mb-8">
+        <v-card color="grey lighten-5" style="border-radius:5px"  class=" pa-3 mb-8">
          <keep-alive>
           <v-layout>
             <v-avatar>

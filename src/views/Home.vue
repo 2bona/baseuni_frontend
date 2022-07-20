@@ -11,13 +11,25 @@
 </v-flex>
 <v-flex
      :class="$vuetify.breakpoint.smAndUp? 'pl-2': ''"
- xs12 sm5 class=" pb-2 align-center">
+ xs12 sm5 class=" pb-0 align-center">
     <v-text-field hide-details v-model="incentive" prepend-inner-icon="mdi-currency-ngn"
       placeholder="Tutor Incentive" filled></v-text-field>
-    <v-btn block color="#0b3054" :loading="loading" @click="create()" dark x-large  class="font-weight-bold  text-capitalize my-2" >submit</v-btn>
+      <v-layout>
+<v-flex xs6 style="overflow:hidden">
+    <v-text-field type="date" hide-details v-model="date" 
+      placeholder="Date" label="Date" filled></v-text-field>
 </v-flex>
+<v-flex xs6 style="overflow:hidden">
+    <v-text-field type="time" hide-details v-model="time" 
+      placeholder="Time" label="Time" filled></v-text-field>
+</v-flex>
+      </v-layout>
+</v-flex>
+    <v-text-field hide-details v-model="venue"
+      placeholder="Venue" filled></v-text-field>
+    <v-btn block color="#0b3054" :loading="loading" @click="create()" dark x-large  class="font-weight-bold my-6 text-capitalize my-2" >submit</v-btn>
       <v-flex xs12>
-        <v-card :disabled="loading" color="grey lighten-5" @click="openLesson(n)" style="border-radius:5px"  hover v-for="(n,i) in lessons" class=" pa-4 mb-8" :key="i">
+        <v-card :disabled="loading" color="grey lighten-5" @click="openLesson(n)" style="border-radius:5px"  hover v-for="(n,i) in lessons" class=" pa-3 mb-8" :key="i">
          <keep-alive>
           <v-layout>
             <v-avatar>
@@ -26,13 +38,13 @@
             <v-flex  class=" align-center px-3" xs12>
 <div class="d-flex justify-space-between">
     <p class="grey--text text--darken-3 text-capitalize font-weight-bold">{{n.description | description}} </p>
-    <p style="font-size:10px">{{n.created_at| myDate}}</p>
+    <p style="font-size:10px" class="text-right">{{n.created_at| myDate}}</p>
 </div>
              <div class="d-flex justify-space-between">
 <p class="mb-0 grey--text">{{n.user.faculty}} - <span class=" grey--text text--darken-2 font-weight-medium">{{n.user.department}} - {{n.user.level}}lvl</span></p>
 
-<p v-if="n.tutor !== null"  style="color:#0b3054" class="mb-0  font-weight-medium">Tutor - {{n.tutor.name}}</p>
-<p v-else style="color:#0b3054" class="mb-0  font-weight-medium">N{{n.incentive | price}}</p>
+<p v-if="n.tutor !== null"  style="color:#0b3054" class="mb-0 text-right font-weight-medium">Tutor - {{n.tutor.name}}</p>
+<p v-else style="color:#0b3054" class="mb-0 text-right font-weight-medium">N{{n.incentive | price}}</p>
                </div> 
             </v-flex>
           </v-layout>        
@@ -68,6 +80,9 @@ export default {
     loading:false,
     incentive: '',
     description: '',
+    time: '',
+    date: '',
+    venue: '',
     img2: "https://res.cloudinary.com/base-uni/image/upload/v1658076722/alpha_connect/C7E03945-30FB-49E5-90AF-FE6D67322900_kegufu.png",
   }),
   computed:{
@@ -114,6 +129,9 @@ this.$router.push('lesson/'+x.id)
       axios.post('lesson/create', {
         description: this.description,
         incentive: this.incentive,
+        venue: this.venue,
+        time: this.time,
+        date: this.date,
         user_id: this.user.id
       }).then(()=>{
       this.loading = false
