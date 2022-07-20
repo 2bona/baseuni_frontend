@@ -27,7 +27,7 @@
           </v-layout>       
             </keep-alive>
             <div class="d-flex justify-end">
-<v-btn v-if="lesson.tutor == null "  @click="addTutor()" color="#0b3054" class="white--text font-weight-bold" dark>Tutor this student</v-btn>
+<v-btn v-if="lesson.tutor == null " :loading="loading"  @click="addTutor()" color="#0b3054" class="white--text font-weight-bold" dark>Tutor this student</v-btn>
             </div>
         </v-card>
       </v-flex>
@@ -55,7 +55,7 @@ export default {
     adcard,
     },
   data: () => ({
-      
+      loading:false,
     img: "https://res.cloudinary.com/base-uni/image/upload/v1658076824/alpha_connect/GWC_ALt_logo_1_zkglzr.png"
   }),
   mounted(){
@@ -90,12 +90,12 @@ export default {
   methods:{
       addTutor(){
           if (this.token) {
-              
-          
+              this.loading = true;
           axios.post('/lesson/add_tutor',{
-              id: this.$route.params.id,
+            id: this.$route.params.id,
               tutor_id: this.user.id,
           }).then(()=>{
+              this.loading = false;
               alert('You have chosen to tutor this student')
           })
           }else{
