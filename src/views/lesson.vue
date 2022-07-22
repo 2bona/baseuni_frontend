@@ -23,6 +23,8 @@
 <p v-if="lesson.tutor !== null"  style="color:#0b3054" class="mb-0 text-right font-weight-medium">Tutor - {{lesson.tutor.name}}</p>
 <p v-else style="color:#0b3054" class="mb-0 text-right font-weight-medium">N{{lesson.incentive | price}}</p>
                   </div> 
+                                 <p class="overline mt-4 mb-0"><span v-if="lesson.date">Date - {{lesson.date}}</span><span v-if="lesson.time"> | Time - {{lesson.time}}</span><span v-if="lesson.venue"> | Venue - {{lesson.venue}}</span></p>
+
             </v-flex>
           </v-layout>       
             </keep-alive>

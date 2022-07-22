@@ -25,6 +25,8 @@
 <p class="mb-0 grey--text text--darken-1 font-weight-medium">N{{n.incentive | price}}</p>
 <p v-if="n.tutor !== null"  style="color:#0b3054" class="mb-0  font-weight-medium">Tutor - {{n.tutor.name}}</p>
                </div> 
+                              <p class="overline mt-4 mb-0"><span v-if="n.date">Date - {{n.date}}</span><span v-if="n.time"> | Time - {{n.time}}</span><span v-if="n.venue"> | Venue - {{n.venue}}</span></p>
+
             </v-flex>
           </v-layout>         </keep-alive>
 
